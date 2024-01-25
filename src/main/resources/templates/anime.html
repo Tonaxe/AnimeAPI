@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <title>Anime Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container-fluid {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .anime-details {
+            margin-top: 20px;
+        }
+        .anime-details img {
+            max-width: 150px;
+            max-height: 200px;
+            border-radius: 5px;
+        }
+        .anime-details th {
+            font-weight: bold;
+        }
+        .anime-details td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>Anime Details</h2>
+</div>
+
+<div class="container anime-details">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead class="table-primary">
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Synopsis</th>
+                    <th>Score</th>
+                    <th>Ranked</th>
+                    <th>Popularity</th>
+                    <th>Members</th>
+                    <th>Favorites</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <img th:src="${animeResponse.picture_url}" alt="Anime Image">
+                    </td>
+                    <td th:text="${animeResponse.title_ov}"></td>
+                    <td th:text="${animeResponse.synopsis}"></td>
+                    <td th:text="${animeResponse.statistics.score}"></td>
+                    <td th:text="${animeResponse.statistics.ranked}"></td>
+                    <td th:text="${animeResponse.statistics.popularity}"></td>
+                    <td th:text="${animeResponse.statistics.members}"></td>
+                    <td th:text="${animeResponse.statistics.favorites}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="chart">
+    <!-- Aquí puedes agregar el código para mostrar gráficos si lo deseas -->
+</div>
+</body>
+</html>
